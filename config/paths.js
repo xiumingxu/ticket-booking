@@ -60,7 +60,6 @@ module.exports = {
   appQueryJs      : resolveModule(resolveApp, 'src/query/index'),
   appTicketJs     : resolveModule(resolveApp, 'src/ticket/index'),
   appOrderJs      : resolveModule(resolveApp, 'src/order/index'),
-
   appPackageJson  : resolveApp('package.json'),
   appSrc          : resolveApp('src'),
   appTsConfig     : resolveApp('tsconfig.json'),
