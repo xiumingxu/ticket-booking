@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-const App = () => {
-  return <div className='App'>something;</div>;
+import './index.css';
+
+const Journey = () => {
+  return <div className='App' />;
 };
 
 const mapStateToProps = state => {
@@ -12,4 +14,4 @@ const mapDispatchToProps = dispatch => {
 };
 // export default connect(function mapStateToProps (state){}, function mapDispatchToProps (dispatch){})(App);
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default Journey;

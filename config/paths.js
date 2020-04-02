@@ -56,7 +56,7 @@ module.exports = {
   appQueryHtml    : resolveApp('public/query.html'),
   appTicketHtml   : resolveApp('public/ticket.html'),
   appOrderHtml    : resolveApp('public/order.html'),
-  appIndexJs      : resolveModule(resolveApp, 'src/index/index'),
+  appIndexJs      : resolveModule(resolveApp, 'src/main/index'),
   appQueryJs      : resolveModule(resolveApp, 'src/query/index'),
   appTicketJs     : resolveModule(resolveApp, 'src/ticket/index'),
   appOrderJs      : resolveModule(resolveApp, 'src/order/index'),
