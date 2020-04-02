@@ -32,14 +32,12 @@ const moduleFileExtensions = [
   'tsx',
   'json',
   'web.jsx',
-  'jsx',
+  'jsx'
 ];
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
-  const extension = moduleFileExtensions.find(extension =>
-    fs.existsSync(resolveFn(`${filePath}.${extension}`))
-  );
+  const extension = moduleFileExtensions.find(extension => fs.existsSync(resolveFn(`${filePath}.${extension}`)));
 
   if (extension) {
     return resolveFn(`${filePath}.${extension}`);
@@ -50,23 +48,27 @@ const resolveModule = (resolveFn, filePath) => {
 
 // config after eject: we're in ./config/
 module.exports = {
-  dotenv: resolveApp('.env'),
-  appPath: resolveApp('.'),
-  appBuild: resolveApp('build'),
-  appPublic: resolveApp('public'),
-  appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveModule(resolveApp, 'src/index'),
-  appPackageJson: resolveApp('package.json'),
-  appSrc: resolveApp('src'),
-  appTsConfig: resolveApp('tsconfig.json'),
-  appJsConfig: resolveApp('jsconfig.json'),
-  yarnLockFile: resolveApp('yarn.lock'),
-  testsSetup: resolveModule(resolveApp, 'src/setupTests'),
-  proxySetup: resolveApp('src/setupProxy.js'),
-  appNodeModules: resolveApp('node_modules'),
-  publicUrlOrPath,
+  dotenv          : resolveApp('.env'),
+  appPath         : resolveApp('.'),
+  appBuild        : resolveApp('build'),
+  appPublic       : resolveApp('public'),
+  appHtml         : resolveApp('public/index.html'),
+  appQueryHtml    : resolveApp('public/query.html'),
+  appTicketHtml   : resolveApp('public/ticket.html'),
+  appOrderHtml    : resolveApp('public/order.html'),
+  appIndexJs      : resolveModule(resolveApp, 'src/index/index'),
+  appQueryJs      : resolveModule(resolveApp, 'src/query/index'),
+  appTicketJs     : resolveModule(resolveApp, 'src/ticket/index'),
+  appOrderJs      : resolveModule(resolveApp, 'src/order/index'),
+  appPackageJson  : resolveApp('package.json'),
+  appSrc          : resolveApp('src'),
+  appTsConfig     : resolveApp('tsconfig.json'),
+  appJsConfig     : resolveApp('jsconfig.json'),
+  yarnLockFile    : resolveApp('yarn.lock'),
+  testsSetup      : resolveModule(resolveApp, 'src/setupTests'),
+  proxySetup      : resolveApp('src/setupProxy.js'),
+  appNodeModules  : resolveApp('node_modules'),
+  publicUrlOrPath
 };
-
-
 
 module.exports.moduleFileExtensions = moduleFileExtensions;
