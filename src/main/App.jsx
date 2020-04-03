@@ -1,15 +1,33 @@
-import React, { Component } from 'react';
+import React, { useCallback } from 'react';
 import { connect } from 'react-redux';
 import Header from '../common/Header';
 import Highway from './Highway';
 import Journey from './Journey';
 import DepartDate from './DepartDate';
 
-const App = () => {
+import { exchangeFromTo, showCitySelector } from './actions';
+
+import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+
+const App = props => {
+  const { from, to, dispatch } = props;
+  const onBack = useCallback(() => {
+    window.history.back();
+  }, []);
+
   return (
-    <div className='App'>
-      <Header />
-      <Journey />
+    <div className="App">
+      <div className="header-wrapper">
+        <Header title="Booking" goBack={onBack} />
+      </div>
+      <Journey
+        from={from}
+        to={to}
+        //!!!
+        exchangeFromTo={() => dispatch(exchangeFromTo())}
+        showCitySelector={() => dispatch(showCitySelector)}
+      />
       <DepartDate />
       <Highway />
     </div>
@@ -17,11 +35,16 @@ const App = () => {
 };
 
 const mapStateToProps = state => {
-  return {};
+  return state;
 };
 const mapDispatchToProps = dispatch => {
-  //   return {};
+  return { dispatch };
 };
-// export default connect(function mapStateToProps (state){}, function mapDispatchToProps (dispatch){})(App);
+
+App.propTypes = {
+  from     : PropTypes.string,
+  to       : PropTypes.string,
+  dispatch : PropTypes.func.isRequired
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -1,7 +1,7 @@
 export const ACTION_SET_FROM = 'SET_FROM';
 export const ACTION_SET_TO = 'SET_TO';
 export const ACTION_SET_IS_CITY_SELECTOR_VISIBLE = 'SET_IS_CITY_SELECTOR_VISIBLE';
-export const ACTION_SET_CURRENT_SELECTING_LEFTCITY = 'SET_CURRENT_SELECTING_LEFTCITY';
+export const ACTION_SET_CURRENT_SELECTING_LEFT_CITY = 'SET_CURRENT_SELECTING_LEFT_CITY';
 
 export const ACTION_SET_IS_LOADING_CITY_DATA = 'SET_IS_LOADING_CITY_DATA';
 export const ACTION_SET_HIGH_SPEED = 'SET_HIGH_SPEED';
@@ -9,6 +9,7 @@ export const ACTION_TOGGLE_HIGH_SPEED = 'TOGGLE_HIGH_SPEED';
 
 export const ACTION_SET_IS_DATE_SELECTOR_VISIBLE = 'SET_IS_DATE_SELECTOR_VISIBLE';
 export const ACTION_SET_CITY_DATA = 'SET_CITY_DATA';
+export const ACTION_SET_DEPART_DATE = 'SET_DEPART_DATE';
 
 // from
 // to
@@ -46,7 +47,7 @@ export const showCitySelector = currentSelectingLeftCity => {
       payload : true
     });
     dispatch({
-      type    : ACTION_SET_CURRENT_SELECTING_LEFTCITY,
+      type    : ACTION_SET_CURRENT_SELECTING_LEFT_CITY,
       payload : currentSelectingLeftCity
     });
   };
@@ -58,11 +59,23 @@ export const hideCitySelector = () => {
     payload : false
   };
 };
+//
+export const exchangeFromTo = () => {
+  return (dispatch, getState) => {
+    // 必须知道其他的, 才能决定下一步怎么走 --> 异步
+    const { from, to } = getState();
+
+    console.log(from, to);
+
+    dispatch(setFrom(to));
+    dispatch(setTo(from));
+  };
+};
 
 // 这个又跟 set city 有关
 export const setCurrentSelectingLeftCity = currentSelectingLeftCity => {
   return {
-    type    : ACTION_SET_CURRENT_SELECTING_LEFTCITY,
+    type    : ACTION_SET_CURRENT_SELECTING_LEFT_CITY,
     payload : currentSelectingLeftCity
   };
 };
@@ -70,7 +83,7 @@ export const setCurrentSelectingLeftCity = currentSelectingLeftCity => {
 export const setSelectedCity = city => {
   return (dispatch, getState) => {
     // 必须知道其他的, 才能决定下一步怎么走 --> 异步
-    const [ currentSelectingLeftCity ] = getState();
+    const { currentSelectingLeftCity } = getState();
     if (currentSelectingLeftCity) {
       //还要有 dispatch
       dispatch(setFrom(city));
@@ -111,16 +124,15 @@ export const toggleHighSpeed = () => {
 };
 
 // 这些都可以分开的;
-// actions/k
-
-export function showDateSelector (){
+// actions
+export function showDateSelector () {
   return {
     type    : ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
     payload : true
   };
 }
 
-export function hideDateSelector (){
+export function hideDateSelector () {
   return {
     type    : ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
     payload : false

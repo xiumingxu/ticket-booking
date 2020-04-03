@@ -3,6 +3,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import reducers from './reducers';
 import thunk from 'redux-thunk';
 
+//搞外面的数据
 export default createStore(
   combineReducers(reducers),
   {
@@ -10,8 +11,7 @@ export default createStore(
     to                       : 'Milan',
     isCitySelectorVisible    : true,
     currentSelectingLeftCity : true,
-    //搞外面的数据
-    cityData                 : null,
+    cityData                 : {},
     isLoadingCityData        : false,
 
     highSpeed                : false,
