@@ -1,0 +1,39 @@
+.city-list {
+    margin-right: 30px;
+}
+
+.city-ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.city-li {
+    display: block;
+    height: 44px;
+    line-height: 44px;
+    padding-left: 25px;
+    border-bottom: 1px solid #e3e6e9;
+    margin-left: 15px;
+}
+.city-li:first-child {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    background-color: #f2f8fb;
+    padding: 0 15px;
+    margin-left: 0;
+    position: sticky;
+    top: -1px;
+    border-bottom: 0;
+}
+
+.city-index {
+    width: 30px;
+    position: fixed;
+    right: 0;
+    top: 44px;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}

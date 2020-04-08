@@ -16,9 +16,7 @@ const Journey = props => {
         <img src={switchIcon} width="70" height="40" alt="switch" />
       </div>
       <div className="journey-station" onClick={() => showCitySelector(false)}>
-        <div className="journey-station">
-          <input className="journey-input journey-to" type="text" readOnly value={to} />
-        </div>
+        <input className="journey-input journey-to" type="text" readOnly value={to} />
       </div>
     </div>
   );
