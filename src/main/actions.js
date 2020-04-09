@@ -133,6 +133,7 @@ export function showDateSelector () {
 }
 
 export function hideDateSelector () {
+    console.log('fire hide dateselector');
     return {
         type    : ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
         payload : false

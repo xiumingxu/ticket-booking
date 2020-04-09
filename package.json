@@ -20,6 +20,7 @@
         "case-sensitive-paths-webpack-plugin": "2.3.0",
         "classnames": "^2.2.6",
         "css-loader": "3.4.2",
+        "dayjs": "^1.8.24",
         "dotenv": "8.2.0",
         "dotenv-expand": "5.1.0",
         "eslint": "^6.6.0",
@@ -78,13 +79,28 @@
         "extends": "react-app"
     },
     "browserslist": {
-        "production": [ ">0.2%", "not dead", "not op_mini all" ],
-        "development": [ "last 1 chrome version", "last 1 firefox version", "last 1 safari version" ]
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
     },
     "jest": {
-        "roots": [ "<rootDir>/src" ],
-        "collectCoverageFrom": [ "src/**/*.{js,jsx,ts,tsx}", "!src/**/*.d.ts" ],
-        "setupFiles": [ "react-app-polyfill/jsdom" ],
+        "roots": [
+            "<rootDir>/src"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!src/**/*.d.ts"
+        ],
+        "setupFiles": [
+            "react-app-polyfill/jsdom"
+        ],
         "setupFilesAfterEnv": [],
         "testMatch": [
             "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
@@ -105,10 +121,26 @@
             "^react-native$": "react-native-web",
             "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
         },
-        "moduleFileExtensions": [ "web.js", "js", "web.ts", "ts", "web.tsx", "tsx", "json", "web.jsx", "jsx", "node" ],
-        "watchPlugins": [ "jest-watch-typeahead/filename", "jest-watch-typeahead/testname" ]
+        "moduleFileExtensions": [
+            "web.js",
+            "js",
+            "web.ts",
+            "ts",
+            "web.tsx",
+            "tsx",
+            "json",
+            "web.jsx",
+            "jsx",
+            "node"
+        ],
+        "watchPlugins": [
+            "jest-watch-typeahead/filename",
+            "jest-watch-typeahead/testname"
+        ]
     },
     "babel": {
-        "presets": [ "react-app" ]
+        "presets": [
+            "react-app"
+        ]
     }
 }

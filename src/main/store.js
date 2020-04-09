@@ -1,9 +1,11 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
 import reducers from './reducers';
 import thunk from 'redux-thunk';
 
 //搞外面的数据
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
+
 export default createStore(
     combineReducers(reducers),
     {
@@ -15,7 +17,11 @@ export default createStore(
         isLoadingCityData        : false,
 
         highSpeed                : false,
-        isDateSelectorVisible    : false
+        //show it for debugging
+        isDateSelectorVisible    : true,
+        //这里计算了当前世界, 且所有界面传递
+        departDate               : Date.now()
     },
-    applyMiddleware(thunk)
+    composeEnhancers(applyMiddleware(thunk))
+    // (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 );
