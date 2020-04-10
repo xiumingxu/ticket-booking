@@ -18,6 +18,12 @@ export const ACTION_SET_DEPART_DATE = 'SET_DEPART_DATE';
 // cityDate
 // isLoadingCityData
 // highSpeed
+export const setDepartDate = date => {
+    return {
+        type    : ACTION_SET_DEPART_DATE,
+        payload : date
+    };
+};
 
 export const setFrom = from => {
     return {

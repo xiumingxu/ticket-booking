@@ -7,6 +7,7 @@ import Journey from './Journey';
 import DepartDate from './DepartDate';
 import DateSelector from '../common/DateSelector';
 import './App.css';
+import { h0 } from '../common/fp';
 
 import {
     exchangeFromTo,
@@ -14,7 +15,8 @@ import {
     showCitySelector,
     hideCitySelector,
     fetchCityData,
-    hideDateSelector
+    hideDateSelector,
+    setDepartDate
 } from './actions';
 
 import PropTypes from 'prop-types';
@@ -91,6 +93,19 @@ const App = props => {
         );
     }, []);
 
+    const onSelectDate = useCallback(day => {
+        if (!day) {
+            return;
+        }
+
+        if (day < h0()) {
+            return;
+        }
+
+        dispatch(setDepartDate(day));
+        dispatch(hideDateSelector());
+    }, []);
+
     return (
         <div className="App">
             <div className="header-wrapper">
@@ -116,7 +131,7 @@ const App = props => {
             {/* isDateSelectorVisible 是 state 也是 action 的函数名字 */}
             {/* //onSelect={onSelectDate} */}
             {/* // 注意 date 是怎么传递的 */}
-            <DateSelector show={isDateSelectorVisible} {...dateSelectorCbs} />
+            <DateSelector show={isDateSelectorVisible} {...dateSelectorCbs} onSelect={onSelectDate} />
         </div>
     );
 };
