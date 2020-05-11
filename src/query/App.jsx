@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-class App extends Component {
-  render () {
-    return <div className="App">something;</div>;
-  }
-}
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./App.css";
 
-export default connect(function mapStateToProps () {}, function mapDispatchToProps (dispatch) {})(App);
+const App = () => {
+  return <div className="App" />;
+};
+
+export default connect(
+  function mapStateToProps() {},
+  function mapDispatchToProps(dispatch) {}
+)(App);

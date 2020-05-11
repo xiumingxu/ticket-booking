@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import './index.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import "./index.css";
 
 const Highway = () => {
-  return <div className='App' />;
+  return <div className="App" />;
 };
 
 const mapStateToProps = state => {
